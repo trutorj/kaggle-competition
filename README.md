@@ -43,4 +43,5 @@ Estadística básica
 
 
 Heatmap con las correlaciones entre las distintas variables:
-![alt text](../img/heatmap.png)
+
+![alt text](img/heatmap.png)
