@@ -94,11 +94,33 @@ Por último, también se hizo una búsqueda del mejor modelo a través de la H2O
 
 En la siguiente tabla se muestran las métricas conseguidas por cada uno de los modelos con sus parámetros *de fábrica*.
 
-TABLA
+|         |   LinearRegression |   LassoRegression |   RidgeRegression |   SupportVectorRegression |   DecissionTreeRegressor |   GradientBoostRegressor |   RandomForest |
+|:--------|-------------------:|------------------:|------------------:|--------------------------:|-------------------------:|-------------------------:|---------------:|
+| mae     |         845.095    |        846.49     |        845.616    |                704.493    |               366.667    |               372.75     |     278.533    |
+| Rsquare |           0.875335 |          0.875353 |          0.875312 |                 -0.844836 |                 0.964027 |                 0.972573 |       0.980231 |
+| rmse    |        1386.84     |       1386.74     |       1386.97     |               5334.99     |               744.976    |               650.496    |     552.264    |
 
-Para el ajuste más fino, se seleccionaron el Gradient Boost Regressor y el Random Forest Regressor. Los parámetros con los que se obtuvieron los mejores resultados se muestran a continuación:
-TABLA
-TABLA
+
+Para el ajuste más fino, se seleccionaron el Gradient Boost Regressor y el Random Forest Regressor. Los parámetros con los que se obtuvieron los mejores resultados se muestran a continuación (solo se muestran los que se ajustaron, el resto se dejaron por defecto):
+
+* Gradient Boosting Regressor:
+    - loss='lad'
+    - learning_rate=0.05
+    - max_depth=10
+    - n_estimators=500)
+
+* Random Forest Regressor
+    - n_estimators = 1000
+    - max_depth = 50
+
+Las métricas obtenidas para cada modelo
+
+| Metrica  |Gradient Boosting Regressor| Random Forest Regressor|
+|:---------|--------------------------:|-----------------------:|
+|mae       |                   290.9415|                281.3454|
+|Rsquare   |                     0.9792|                  0.9787|
+|rmse      |                     576.88|                  576.19|
+
 
 ### Modelo de H2OML
 
