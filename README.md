@@ -83,9 +83,9 @@ Para decidir qué modelo escoger, se seleccionaron los siguientes modelos de la 
 
 Los dos modelos con los mejores resultados se seleccionaron para una segunda fase en la que se ajustaron algunos de sus parámetros mediante la herramienta `GridSearchCV`
 
-#### Modelo de H2OML
+#### Modelo de H2O AutoML
 
-Por último, también se hizo una búsqueda del mejor modelo a través de la H2O ML, con una selección de 20 modelos y un límite de una hora.
+Por último, también se hizo una búsqueda del mejor modelo a través de la H2O AutoML, con una selección de 20 modelos y un límite de una hora.
 
 
 ## RESULTADOS
@@ -102,12 +102,12 @@ TABLA
 
 ### Modelo de H2OML
 
-Finalmente, el mejor modelo encontrado por H2OML fue un modelo ensamblado, StackedEnsemble_AllModels_AutoML_20200511_162219, con el que se obtuvieron las siguientes métricas
+Finalmente, el mejor modelo encontrado por H2OML fue un modelo ensamblado, StackedEnsemble_AllModels_AutoML_20200511_162219, con el que se obtuvieron las siguientes métricas:
 | Metrica               | Valor    |
 |:----------------------|---------:|
 |mean_residual_deviance |    290786|
 |rmse                   |   539.246|
-|mse                    |   290786 |
+|mse                    |    290786|
 |mae                    |   274.409|
-|rmsle                  | 0.0990103|
+|rmsle                  |    0.0990|
 
