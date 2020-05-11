@@ -1,4 +1,4 @@
-# kaggle-competition
+# Kaggle Competition
 #### *Encontrar el mejor modelo para predecir el precio de los diamantes*
 
 ## 1. Introducción
