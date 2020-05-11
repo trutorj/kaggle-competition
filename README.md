@@ -1,6 +1,5 @@
 # kaggle-competition
-## Encontrar el mejor modelo para predecir el precio de los diamantes
-
+#### *Encontrar el mejor modelo para predecir el precio de los diamantes*
 
 ## 1. Introducción
 
@@ -8,9 +7,9 @@ El objetivo de este proyecto consiste en encontrar el modelo de regresión que m
 
 * **Carat**: es el peso de la piedra.
 
-* **Color**: el grado de ausencia de color
+* **Color**: el grado de ausencia de color.
 
-* **Cut**: las proporciones del diamante
+* **Cut**: las proporciones del diamante.
 
 * **Claridad**: la presencia o ausencia de inclusiones en el diamante.
 
@@ -18,7 +17,7 @@ El objetivo de este proyecto consiste en encontrar el modelo de regresión que m
 
 * **Table**: anchura de la cara superior.
 
-* **x, y, z**: medidas de las  
+* **x, y, z**: métricas dimensionales.
 
 Para ello, contamos con un dataset compuesto de  40345 entradas que relacionan estas características y el precio alcanzado por el diamante y de los diferentes modelos de machine learning de las librerías SciKit Learning y H2O.
 
