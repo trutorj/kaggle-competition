@@ -14,21 +14,19 @@ El objetivo de este proyecto consiste en encontrar el modelo de regresión que m
 
 * **Claridad**: la presencia o ausencia de inclusiones en el diamante.
 
-* **Depth**: altura del diamente
+* **Depth**: altura del diamente.
 
 * **Table**: anchura de la cara superior.
 
-* **x, y, z**: medidas
+* **x, y, z**: medidas de las  
 
-Para ello, contamos con un dataset compuesto de  40345 entradas que relacionan estas características y el precio alcanzado por el diamante.
+Para ello, contamos con un dataset compuesto de  40345 entradas que relacionan estas características y el precio alcanzado por el diamante y de los diferentes modelos de machine learning de las librerías SciKit Learning y H2O.
 
-## Materiales y métodos
+## 2. Materiales y métodos
 
 ### Análisis de los datos
 
-El primer paso fue ver los datos, su tipo, su estructura, la cantidad nulos y las relaciones entre las variables.
-
-Estadística básica
+El primer paso fue ver los datos, su tipo, su estructura, la presencia de nulos y las relaciones entre las variables. En la siguiente tabla se muestra el resumen del análisis exploratorio de los datos:
 
 |       |        carat |         cut |       color |     clarity |       depth |       table |           x |           y |            z |    price |
 |:------|-------------:|------------:|------------:|------------:|------------:|------------:|------------:|------------:|-------------:|---------:|
@@ -41,8 +39,7 @@ Estadística básica
 | 75%   |     1.04     |     4       |     6       |     5       |    62.5     |    59       |     6.54    |     6.53    |     4.03     |  5313    |
 | max   |     4.01     |     5       |     7       |     8       |    79       |    95       |    10.02    |    58.9     |     8.06     | 18818    |
 
-
-Heatmap con las correlaciones entre las distintas variables:
+Para analizar las correlaciones entre las distintas variables, se hizo un heatmap:
 ![alt text](img/heatmap.png)
 
 Se observa lo siguiente:
@@ -57,9 +54,9 @@ Gráficos de dispersión entre precio y el resto de variables
 ![alt text](img/scatterplots.png)
 De la gráfica y de la bibliografía consultada se extrae que entre *price* y *carat* hay una relación exponencial. De hecho, si 
 
-### Extracción de *features*
+### Extracción de las variables
 
-Del análisis anterior, se decidió eliminar las variables *table* y *depth* por su baja correlación con *price*, así como y transformar *cut*, *color* y *clarity* dividiéndolas por *carat* para no perder dicha información.
+Como paso previo al entrenamiento del modelo, y viendo los resultados del análisis anterior, por un lado, se decidió eliminar las variables *table* y *depth* por su baja correlación con *price*; por otro se crearon 3 nuevas variables al hacer el cociente entre *cut*, *color* y *clarity* y *carat* con el objetivo de no perder dicha información.
 
 ### Análisis de los modelos
 
@@ -81,16 +78,15 @@ Para decidir qué modelo escoger, se seleccionaron los siguientes modelos de la 
 
 * Random Forest Regressor
 
-Los dos modelos con los mejores resultados se seleccionaron para una segunda fase en la que se ajustaron algunos de sus parámetros mediante la herramienta `GridSearchCV`
+Los dos modelos con los mejores resultados se seleccionaron para una segunda fase en la que se ajustaron algunos de sus parámetros mediante la herramienta `GridSearchCV`.
 
 #### Modelo de H2O AutoML
 
-Por último, también se hizo una búsqueda del mejor modelo a través de la H2O AutoML, con una selección de 20 modelos y un límite de una hora.
+Por último, también se hizo una búsqueda del mejor modelo a través de H2O AutoML, con una selección de 20 modelos y un límite de una hora.
 
+## 3. RESULTADOS
 
-## RESULTADOS
-
-### Modelos de Skicit Learn
+#### Modelos de Skicit Learn
 
 En la siguiente tabla se muestran las métricas conseguidas por cada uno de los modelos con sus parámetros *de fábrica*.
 
@@ -107,7 +103,7 @@ Para el ajuste más fino, se seleccionaron el Gradient Boost Regressor y el Rand
     - loss='lad'
     - learning_rate=0.05
     - max_depth=10
-    - n_estimators=500)
+    - n_estimators=500
 
 * Random Forest Regressor
     - n_estimators = 1000
@@ -121,8 +117,7 @@ Las métricas obtenidas para cada modelo
 |Rsquare   |                     0.9792|                  0.9787|
 |rmse      |                     576.88|                  576.19|
 
-
-### Modelo de H2OML
+#### Modelo de H2OML
 
 Finalmente, el mejor modelo encontrado por H2OML fue un modelo ensamblado, StackedEnsemble_AllModels_AutoML_20200511_162219, con el que se obtuvieron las siguientes métricas:
 | Metrica               | Valor    |
